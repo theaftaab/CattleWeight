@@ -1,0 +1,14 @@
+setup.py
+CattleWeight/Cattle_inference.py
+CattleWeight/__init__.py
+CattleWeight/linear.pkl
+CattleWeight/rear_keypoint_model.pt
+CattleWeight/rear_segmentation_model.pt
+CattleWeight/requirements.txt
+CattleWeight/side_keypoint_model.pt
+CattleWeight/side_segmentation_model.pt
+CattleWeight.egg-info/PKG-INFO
+CattleWeight.egg-info/SOURCES.txt
+CattleWeight.egg-info/dependency_links.txt
+CattleWeight.egg-info/requires.txt
+CattleWeight.egg-info/top_level.txt
