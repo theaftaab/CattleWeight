@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 from data_funnel import CattleInference
 import os
-from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.metrics import r2_score
 from xgboost import XGBRegressor
 # ... your existing cattle inference imports and functions
 cattle_inference = CattleInference(
@@ -14,7 +13,7 @@ cattle_inference = CattleInference(
     rear_segmentation_path="/Users/aftaabhussain/Work/Cattle-weight/YOLO Models/rear_segmentation_model/last.pt",
     output_dir="inference_results")
 # Load your data into a pandas DataFrame
-data = pd.read_csv("train_data.csv")  # Replace with your data loading method
+data = pd.read_csv("../deployment/train_data.csv")  # Replace with your data loading method
 
 # Define the features (independent variables) and target (dependent variable)
 features = ["side_length_shoulderbone", "side_f_girth", "side_r_girth", "rear_width", "cow_pixels", "sticker_pixels"]
@@ -48,9 +47,9 @@ def save_uploaded_file(uploaded_file, filename):
   """
     if uploaded_file is not None:
         # Create a directory named "uploaded_images" if it doesn't exist
-        if not os.path.exists("uploaded_images"):
-            os.makedirs("uploaded_images")
-        filepath = os.path.join("uploaded_images", filename)
+        if not os.path.exists("../deployment/uploaded_images"):
+            os.makedirs("../deployment/uploaded_images")
+        filepath = os.path.join("../deployment/uploaded_images", filename)
         with open(filepath, "wb") as f:
             f.write(uploaded_file.read())
         return filepath

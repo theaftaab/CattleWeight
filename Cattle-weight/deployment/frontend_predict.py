@@ -4,14 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from data_funnel import CattleInference
 import os
-from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.metrics import r2_score
 
 # ... your existing cattle inference imports and functions
 cattle_inference = CattleInference(
-    side_keypoint_path="/Users/aftaabhussain/Work/Cattle-weight/YOLO Models/side_keypoint_model/last.pt",
-    rear_keypoint_path="/Users/aftaabhussain/Work/Cattle-weight/YOLO Models/rear_keypoint_model/last.pt",
-    side_segmentation_path="/Users/aftaabhussain/Work/Cattle-weight/YOLO Models/side_segmentation_model/last.pt",
-    rear_segmentation_path="/Users/aftaabhussain/Work/Cattle-weight/YOLO Models/rear_segmentation_model/last.pt",
+    side_keypoint_path="YOLO Models/side_keypoint_model/last.pt",
+    rear_keypoint_path="YOLO Models/rear_keypoint_model/last.pt",
+    side_segmentation_path="YOLO Models/side_segmentation_model/last.pt",
+    rear_segmentation_path="YOLO Models/rear_segmentation_model/last.pt",
     output_dir="inference_results")
 # Load your data into a pandas DataFrame
 data = pd.read_csv("train_data.csv")  # Replace with your data loading method
@@ -31,6 +31,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 r_square = r2_score(y_test, y_pred)
 print(r_square)
+
 
 def save_uploaded_file(uploaded_file, filename):
     """

@@ -15,9 +15,9 @@ def save_uploaded_file(uploaded_file, filename):
   """
     if uploaded_file is not None:
         # Create a directory named "uploaded_images" if it doesn't exist
-        if not os.path.exists("uploaded_images"):
-            os.makedirs("uploaded_images")
-        filepath = os.path.join("uploaded_images", filename)
+        if not os.path.exists("../deployment/uploaded_images"):
+            os.makedirs("../deployment/uploaded_images")
+        filepath = os.path.join("../deployment/uploaded_images", filename)
         with open(filepath, "wb") as f:
             f.write(uploaded_file.read())
         return filepath

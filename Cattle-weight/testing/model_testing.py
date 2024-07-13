@@ -5,7 +5,7 @@ from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
 from xgboost import XGBRegressor
 
-data = pd.read_csv("train_data.csv")  # Replace with your data loading method
+data = pd.read_csv("../deployment/train_data.csv")  # Replace with your data loading method
 
 # Define the features (independent variables) and target (dependent variable)
 features = ["side_length_shoulderbone", "side_f_girth", "side_r_girth", "rear_width", "cow_pixels", "sticker_pixels"]
